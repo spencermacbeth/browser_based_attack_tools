@@ -1,7 +1,19 @@
 /**
- * This script overwrites the XMLHttpRequest.send function and places and intercept for the supported
- * request types. Currently, this is limited to POST requests with JSON and x-www-form-urlencoded bodies.
+ * Send an example POST request with a x-www-form-urlencoded body to the specified URI.s
+ * 
+ * @param {*} host 
+ * @param {*} port 
+ * @param {*} route 
  */
+function sendFormDataPOST(host, port, route) {
+    const target = `http://${host}:${port}/${route}`;
+    const xmlHttp = new XMLHttpRequest();
+    const params = 'data=some_data';
+    xmlHttp.open('POST', target);
+    xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlHttp.send(params);
+}
+
 (function(send) {
     XMLHttpRequest.prototype.send = function(reqString) {
 
@@ -65,3 +77,5 @@
         sender(reqString, send, this);
     };
 })(XMLHttpRequest.prototype.send);
+
+sendFormDataPOST('localhost', 3000, 'server.php');
