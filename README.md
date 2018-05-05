@@ -1,4 +1,4 @@
-# browser_based_attack_tools
+# browser_based_security_tools
 
 This repo contains some simple tools I developed to test what sorts of vulnerability probing tools and attacks can be launched using only a browser. The code currently contained here was developed for practicing security concepts. These tools are essentially toy problems, and far more effective tools for all effects achieved here exist. Please use responsibly.
 
